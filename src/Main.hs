@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE QuasiQuotes #-}
 module Main where
 
 import Turtle
@@ -23,7 +22,7 @@ main = do
             regSetStringValue h_magnet "URL Protocol" ""
             h_shell <- regCreateKey h_magnet "shell"
             h_open <- regCreateKey h_shell "open"
-            regSetValue h_open "command" $ "\"" <> origPath <> "\" %*"
+            regSetValue h_open "command" $ "\"" <> origPath <> "\" %1"
             h_command <- regCreateKey h_open "command"
             putStrLn "reg setup succeeded"
         ) :: IO (Either SomeException ())
